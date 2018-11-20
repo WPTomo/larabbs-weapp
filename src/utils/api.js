@@ -72,7 +72,7 @@ const authRequest = async (options, showLoading = true) => {
 
   // 将 Token 设置在 header 中
   let header = options.header || {}
-  header.Authorization = 'Bearer ' + accessToken
+  header.Authorization = `Bearer ${accessToken}`
   options.header = header
 
   return request(options, showLoading)
@@ -82,10 +82,10 @@ const authRequest = async (options, showLoading = true) => {
 const refreshToken = async (accessToken) => {
   // 请求刷新接口
   let refreshResponse = await wepy.request({
-    url: host + '/' + 'authorizations/current',
+    url: `${host}/authorizations/current`,
     method: 'PUT',
     header: {
-      'Authorization': 'Bearer ' + accessToken
+      'Authorization': `Bearer ${accessToken}`
     }
   })
 
