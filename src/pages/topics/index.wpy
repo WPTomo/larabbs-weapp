@@ -79,6 +79,7 @@
 <script>
   import wepy from 'wepy'
   import api from '@/utils/api'
+  import util from '@/utils/util'
   import topicList from '@/components/topicList'
 
   export default class TopicIndex extends wepy.page {
@@ -156,7 +157,7 @@
       }
     }
     onShow () {
-      this.$parent.checkRefreshPages(this.getCurrentPages().pop().route, () => {
+      this.$parent.checkRefreshPages(util.getCurrentPageRoute(), () => {
         this.$invoke('topiclist', 'reload')
       })
     }

@@ -6,6 +6,15 @@ const diffForHumans = (date, format = "YYYYMMDD H:mm:ss") => {
     return moment(date, format).fromNow()
 }
 
+const getCurrentPageRoute = () => {
+    let pages = getCurrentPages()
+    let currentPage = pages[pages.length - 1]
+    let route = currentPage.route
+
+    return route
+}
+
 export default {
-    diffForHumans
+    diffForHumans,
+    getCurrentPageRoute
 }
